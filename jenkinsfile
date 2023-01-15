@@ -1,33 +1,3 @@
-Skip to content
-Search or jump to…
-Pull requests
-Issues
-Codespaces
-Marketplace
-Explore
- 
-@NageshMourya6 
-NageshMourya6
-/
-pipeline
-Public
-Cannot fork because you own this repository and are not a member of any organizations.
-Code
-Issues
-Pull requests
-Actions
-Projects
-Wiki
-Security
-Insights
-Settings
-pipeline/Jenkinsfile.old
-@andynosy
-andynosy Rename Jenkinsfile to Jenkinsfile.old
-Latest commit 9b4f8f6 on Jul 1, 2020
- History
- 1 contributor
-68 lines (59 sloc)  1.66 KB
 
 pipeline {
   agent any 
@@ -87,13 +57,4 @@ pipeline {
     }
     
     
-    stage ('DAST') {
-      steps {
-        sshagent(['zap']) {
-         sh 'ssh -o  StrictHostKeyChecking=no ubuntu@13.232.158.44 "docker run -t owasp/zap2docker-stable zap-baseline.py -t http://13.232.202.25:8080/webapp/" || true'
-        }
-      }
-    }
     
-  }
-}
